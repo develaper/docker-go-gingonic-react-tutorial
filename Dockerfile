@@ -7,9 +7,9 @@ RUN apk update && apk add alpine-sdk git && rm -rf /var/cache/apk/*
 RUN mkdir -p /api
 WORKDIR /api
 
-COPY go.mod .
-COPY go.sum .
-RUN go mod download
+#COPY go.mod .
+#COPY go.sum .
+#RUN go mod download
 
 COPY . .
 RUN go get -u github.com/gin-gonic/gin
@@ -56,5 +56,4 @@ ADD src/views ./views
 
 ###you will need to uncomment this 2 lines if you want to use run.sh
 #EXPOSE 8080
-
 #ENTRYPOINT ["./app"]
